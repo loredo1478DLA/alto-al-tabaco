@@ -1,0 +1,461 @@
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTO AL TABACO</title>
+    <style>
+
+        body {
+            background-color: #1a1a1a; /* Negro muy oscuro */
+            color: #E0E0E0; /* Gris muy claro, casi blanco */
+            font-family: 'Georgia', serif; /* Fuente elegante */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .campaign-main-title {
+            font-family: 'Times New Roman', serif;
+            color: #FFD700; /* Dorado para destacar */
+            font-size: 3em; /* Tamaño grande */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra sutil */
+        }
+        
+        .campaign-subtitle {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            color: #ADD8E6; /* Azul claro elegante */
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .content-section {
+            background-color: #282828; /* Gris oscuro para las cajas de contenido */
+            padding: 25px;
+            margin: 30px auto;
+            border: 1px solid #444444; /* Borde sutil */
+            border-radius: 8px;
+            width: 85%;
+            max-width: 950px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.7); /* Sombra para profundidad */
+        }
+      
+        .content-section p, .content-section small, .content-section ul {
+            line-height: 1.6;
+            color: #D0D0D0;
+        }
+        
+        #interactive-message-box table {
+            background-color: #4A4A4A; /* Gris oscuro para el mensaje */
+            color: #FFD700 !important; /* Dorado para el texto del mensaje */
+            border: 1px solid #FFD700;
+            box-shadow: 0px 0px 10px rgba(255,215,0,0.3);
+        }
+        
+        button {
+            background-color: #000000; /* Negro puro */
+            color: #FFD700; /* Dorado */
+            padding: 12px 25px;
+            border: 1px solid #FFD700; /* Borde dorado */
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 8px;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        button:hover {
+            background-color: #FFD700; /* Dorado al pasar el ratón */
+            color: black; /* Texto negro al pasar el ratón */
+            border-color: black;
+        }
+		
+        .testimonial-button {
+            background-color: #ADD8E6 !important; /* Azul claro elegante */
+            color: #1a1a1a !important; /* Texto oscuro */
+            border-color: #000000 !important;
+        }
+        .testimonial-button:hover {
+            background-color: #FFD700 !important;
+            color: #1a1a1a !important;
+            border-color: #1a1a1a !important;
+        }
+        /* Estilo para inputs y textareas en el formulario */
+        input[type="text"], input[type="submit"], input[type="reset"], select, textarea {
+            background-color: #333333; /* Gris oscuro para inputs */
+            color: #E0E0E0;
+            border: 1px solid #555555;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            accent-color: #FFD700; /* Acento dorado para radios/checkboxes */
+        }
+        /* Estilo para la línea divisoria */
+        hr {
+            border-color: #555555; /* Gris oscuro para las líneas */
+        }
+        .image-placeholder {
+            background-color: #333333; /* Fondo oscuro para el placeholder */
+            padding: 15px;
+            border: 1px dashed #FFD700; /* Borde punteado dorado */
+            color: #D0D0D0;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        /* Estilo para las listas */
+        ul {
+            list-style-type: disc; /* Puntos para las listas */
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        /* Estilo para el reproductor de video */
+        .video-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 2px solid #ADD8E6;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // ARREGLO DE TESTIMONIOS
+        const testimonialsData = [
+            {
+                name: "🎙️ Testimonio de 'Laura, 45 años'",
+                story: "«Fumé durante 20 años pensando que lo controlaba. No fue hasta mi primer ataque de pánico que entendí la adicción. Dejarlo fue la batalla más dura y la mejor decisión de mi vida. Ahora puedo subir escaleras sin quedarme sin aliento. ¡No esperes a un susto para empezar!»"
+            },
+            {
+                name: "🎙️ Testimonio de 'Miguel, 52 años'",
+                story: "«Mi dentista me mostró el daño que el tabaco hacía a mis encías y dientes. Me di cuenta de que no era solo salud interna, era mi apariencia. Dejé el tabaco hace un año y la diferencia en mi aliento, mi piel y mis dientes es increíble. ¡Es una victoria diaria!»"
+            },
+            {
+                name: "🎙️ Testimonio de 'Sofía, 33 años'",
+                story: "«Cuando tuve a mi primer hijo, no pude seguir fumando. La culpa y el miedo a exponerlo a ese humo fueron más fuertes que la nicotina. Los primeros meses fueron infernales, pero el simple hecho de poder abrazar a mi bebé sin oler a cigarro es mi motivación constante.»"
+            },
+            {
+                name: "🎙️ Testimonio de 'Carlos, 60 años'",
+                story: "«Fui un fumador de dos paquetes diarios desde la adolescencia. Me diagnosticaron EPOC. La lucha contra la falta de aire me hizo ver que estaba cambiando años de vida por minutos de humo. Dejarlo no curó mis pulmones, pero detuvo el daño. Ahora valoro cada bocanada de aire limpio.»"
+            },
+            {
+                name: "🎙️ Testimonio de 'Elena, 28 años'",
+                story: "«El dinero que gastaba era absurdo. Empecé a guardar el costo de una cajetilla diaria en un frasco. Al final del mes, pude pagar un viaje corto. Esa recompensa tangible de ver el dinero ahorrar es lo que me mantuvo firme. El ahorro es una gran motivación.»"
+            }
+        ];
+
+        // Función segura para simular un mensaje sin usar alert()
+        function showMessage(title, message) {
+            const messageBox = document.getElementById('interactive-message-box');
+            messageBox.innerHTML = `
+                <center>
+                    <table border="0" width="80%" cellpadding="10" style="background-color: #4A4A4A; color: #FFD700; border-radius: 5px; margin: 10px 0;">
+                        <tr>
+                            <td>
+                                <b>${title}</b><br>
+                                <small>${message}</small>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            `;
+            messageBox.style.display = 'block';
+        }
+
+        // Función para simular el cambio de página mostrando el div solicitado y ocultando los demás.
+        function showPage(pageId) {
+            document.getElementById('interactive-message-box').style.display = 'none';
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Función específica para el botón interactivo de Introducción
+        function showQuittingFact() {
+            showMessage(
+                "¡Dato Motivacional Rápido!",
+                "Solo 20 minutos después de tu último cigarrillo, tu ritmo cardíaco y tu presión arterial comienzan a normalizarse. ¡Los cambios son inmediatos!"
+            );
+        }
+
+        // Función específica para el botón interactivo de Información y Datos
+        function showTarFact() {
+            showMessage(
+                "¡Advertencia Química!",
+                "El alquitrán del cigarrillo es una sustancia pegajosa y negra. Si fumas un paquete diario, introduces el equivalente a una taza de alquitrán en tus pulmones cada año."
+            );
+        }
+        
+        // FUNCIÓN DE TESTIMONIO MODIFICADA: SELECCIÓN ALEATORIA
+        function showTestimonial() {
+            // Genera un índice aleatorio basado en la longitud del array
+            const randomIndex = Math.floor(Math.random() * testimonialsData.length);
+            // Selecciona el testimonio
+            const selectedTestimonial = testimonialsData[randomIndex];
+            
+            showMessage(
+                selectedTestimonial.name,
+                selectedTestimonial.story
+            );
+        }
+
+        // Inicializa la página principal (Índice) al cargar
+        window.onload = function() {
+            showPage('page-inicio');
+        };
+    </script>
+</head>
+<body>
+
+    <marquee bgcolor="#0A0A0A">
+        <h1 align="center" class="campaign-main-title">
+            ¡DETÉN EL HUMO! TU SALUD ES LO MÁS IMPORTANTE!
+        </h1>
+    </marquee>
+    <hr size="1" color="#FFD700">
+
+    <div id="interactive-message-box" style="display: none;"></div>
+
+    <div id="page-inicio" class="page-content" style="display: none;">
+        <center>
+            <h2 class="campaign-subtitle">TABACO</h2>
+            
+            <div class="content-section" style="background-color: #333333; border: 1px solid #FFD700;">
+                <p align="center">
+                    El tabaco es un producto agrícola procesado a partir de las hojas de Nicotiana tabacum. Se consume de varias formas, de las que la principal es inhalando el humo que se produce por la combustión de cigarros, cigarrillos o puros. Se utiliza desde hace milenios y tiene su origen en el continente americano, desde donde se extendió a Europa en el siglo XVI y, posteriormente, al resto del mundo. Utiliza los botones inferiores para navegar por la información.
+                </p>
+                <hr size="1" color="#444444">
+                <p align="justify">
+                    <b>¿Sabías que los beneficios de dejar de fumar comienzan casi de inmediato?</b> Explora nuestra sección de <i>Introducción</i> para entender los químicos que inhalas y consulta <i>Información y Datos</i> para ver cómo el tabaquismo afecta tu corazón, pulmones y apariencia. Finalmente, utiliza el <i>Formulario</i> para dar el primer paso hacia una vida sin humo. Queremos acompañarte en este proceso crucial.
+                </p>
+            </div>
+        </center>
+
+        <center>
+            <p>
+                <button onclick="showPage('page-introduccion')">Introducción</button>
+                <button onclick="showPage('page-info')">Información y Datos</button>
+                <button onclick="showPage('page-testimonios')">Testimonios</button>
+                <button onclick="showPage('page-formulario')">Formulario</button>
+            </p>
+        </center>
+        <hr size="4" color="#FFD700">
+        
+        <center>
+            <p>
+                <b style="color: #ADD8E6;">Cita de Impacto:</b> "Dejar de fumar es la única forma de garantizar que el resto de tu vida sea la mejor parte de ella."
+            </p>
+        </center>
+    </div>
+
+    <div id="page-testimonios" class="page-content" style="display: none;">
+        <center>
+            <h2 class="campaign-subtitle">🎙️ Historias de Quienes Lo Lograron</h2>
+            <p style="color: #D0D0D0;">
+                Presiona el botón para escuchar una historia real de lucha, superación y éxito. ¡Cada clic trae una nueva motivación!
+            </p>
+            <div class="content-section">
+                <p align="center">
+                    Los testimonios ofrecen la perspectiva más poderosa. Conoce las luchas y los triunfos de personas que han dejado el tabaco.
+                </p>
+                <hr size="1" color="#444444">
+                <center>
+                    <button onclick="showTestimonial()" class="testimonial-button">
+                        ✨ ¡Presiona para Ver un Testimonio Inspirador!
+                    </button>
+                </center>
+                
+                <p align="center" style="margin-top: 20px;">
+                    <span style="font-weight: bold;">Recuerda:</span> Eres más fuerte que la adicción. Si ellos pudieron, tú también puedes.
+                </p>
+            </div>
+        </center>
+        <br>
+        <center>
+            <button onclick="showPage('page-inicio')" style="background-color: #555555; border-color: #AAAAAA; color: white;">Volver al Índice</button>
+        </center>
+        <hr size="4" color="#444444" style="margin-top: 20px;">
+    </div>
+
+    <div id="page-introduccion" class="page-content" style="display: none;">
+        <center>
+            <h2 class="campaign-subtitle">INTRODUCCIÓN: LA AMENAZA DEL TABAQUISMO Y SUS COMPONENTES</h2>
+            
+            <div class="content-section">
+                <table border="0" width="100%" cellpadding="10">
+                    <tr>
+                        <td width="60%" valign="top">
+                            <p align="justify">
+El consumo de tabaco es un factor de riesgo para muchas enfermedades, especialmente las que afectan al corazón, el hígado y los pulmones, y muchos tipos de cáncer.​ En 2008, la Organización Mundial de la Salud (OMS) definió al tabaco como «la principal causa en el mundo de muertes evitables». A comienzos del siglo XXI, la OMS estimaba que el tabaco era el responsable de más de 5 millones de muertes cada año y de al menos 100 millones de muertes en todo el siglo XX.​ Según las estimaciones de la propia OMS, de seguir las tendencias actuales, la cifra de muertes por tabaquismo podría elevarse a ocho millones anuales en el 2030, hasta totalizar un estimado de 1000 millones de muertes a lo largo del siglo XXI.​ Desde la década de 1990 se han promovido legislaciones en países desarrollados e iniciativas internacionales, como el Convenio Marco para el Control del Tabaco, para frenar su consumo aunque, a nivel mundial, éste ha aumentado en las últimas décadas, especialmente en países en vías de desarrollo, mientras que en los países desarrollados se ha estancado o disminuido.                                                                                                </p>
+                            
+                            <h4 style="color: #ADD8E6;">Los Químicos Ocultos</h4>
+                            <p align="justify">
+                                Un cigarrillo es esencialmente una fábrica química. No es solo nicotina; contiene más de <span style="font-weight: bold;">7,000 sustancias químicas</span>, de las cuales al menos <span style="font-weight: bold;">250 son nocivas</span> y más de <span style="font-weight: bold;">69 son cancerígenas</span> (carcinógenas).
+                                Entre los más peligrosos se encuentran:
+                                <ul>
+                                    <li><span style="font-weight: bold;">Nicotina:</span> La sustancia altamente adictiva que genera dependencia física y psicológica.</li>
+                                    <li><span style="font-weight: bold;">Monóxido de Carbono:</span> Un gas incoloro e inodoro que disminuye la capacidad de la sangre para transportar oxígeno a órganos vitales.</li>
+                                    <li><span style="font-weight: bold;">Alquitrán:</span> Una mezcla pegajosa de miles de químicos, muchos de ellos cancerígenos, que se depositan en los pulmones.</li>
+                                    <li><span style="font-weight: bold;">Arsénico y Cianuro:</span> Venenos potentes que atacan el sistema nervioso y respiratorio, usados también en raticidas.</li>
+                                    <li><span style="font-weight: bold;">Formaldehído:</span> Químico usado para preservar cadáveres, un conocido irritante y cancerígeno.</li>
+                                </ul>
+                            </p>
+                            <p align="justify">
+                        </td>
+                        <td width="40%" valign="top" align="center">
+                            <img src="compo.jpg" alt="Daño en la piel y dientes por tabaquismo" width="350px" height="200px">
+							<img src="images.jpg" alt="Daño en la piel y dientes por tabaquismo" width="350px" height="400px">
+                            <br>
+                            <button onclick="showQuittingFact()">¡Presiona aquí para un Dato Rápido!</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <button onclick="showPage('page-inicio')" style="background-color: #555555; border-color: #AAAAAA; color: white;">Volver al Índice</button>
+        </center>
+        <hr size="4" color="#444444" style="margin-top: 20px;">
+    </div>
+
+    <div id="page-info" class="page-content" style="display: none;">
+        <center>
+            <h2 class="campaign-subtitle">HECHOS CRUCIALES Y RIESGOS ESPECÍFICOS</h2>
+            <p style="color: #D0D0D0;">
+                El tabaco es una amenaza grave y <span style="font-weight: bold;">sistémica</span>. Conocer los datos te da el poder de tomar la mejor decisión.
+            </p>
+        </center>
+
+        <div class="content-section">
+            <table border="0" width="100%" cellspacing="15">
+                <tr>
+                    <td width="50%" valign="top" style="background-color: #333333; padding: 20px; border-radius: 8px; border: 1px solid #555555;">
+                        <span style="font-weight: bold;">1. Enfermedades Cardiovasculares (Daño Arterial Inmediato):</span><br>
+                        <small style="color: #D0D0D0;">La nicotina y el monóxido de carbono actúan como veneno en el revestimiento de los vasos sanguíneos (<span style="font-weight: bold;">endotelio</span>). Esto provoca que el corazón se vea forzado a trabajar más rápido y eleva la presión arterial. El tabaquismo es la causa principal de la <span style="font-weight: bold;">arteriosclerosis</span>, donde las arterias se estrechan y endurecen por la acumulación de placa. Este proceso incrementa drásticamente el riesgo de <span style="font-weight: bold;">infartos de miocardio</span>, <span style="font-weight: bold;">accidentes cerebrovasculares (ictus)</span> y <span style="font-weight: bold;">enfermedad arterial periférica</span> (que puede llevar a la amputación).</small>
+                        <br><br>
+                        <center>
+                            <img src="cardio.jpg" alt="Arteria obstruida por tabaquismo" width="300px" height="250px">
+                        </center>
+                    </td>
+                    <td width="50%" valign="top" style="background-color: #333333; padding: 20px; border-radius: 8px; border: 1px solid #555555;">
+                        <span style="font-weight: bold;">2. Peligro Respiratorio (EPOC e Infecciones):</span><br>
+                        <small style="color: #D0D0D0;">El alquitrán y los irritantes del humo paralizan y destruyen los <span style="font-weight: bold;">cilios</span> (pelos microscópicos que limpian los pulmones). Sin ellos, el moco y las toxinas se acumulan, resultando en <span style="font-weight: bold;">Bronquitis Crónica</span> (tos persistente). Además, el humo daña irreversiblemente los sacos de aire (<span style="font-weight: bold;">alvéolos</span>), causando <span style="font-weight: bold;">Enfisema</span> y limitando la capacidad de tomar oxígeno. Ambas son componentes de la <span style="font-weight: bold;">Enfermedad Pulmonar Obstructiva Crónica (EPOC)</span>, una condición progresiva y debilitante. Los fumadores también tienen más riesgo de neumonía y tuberculosis.</small>
+                        <br><br>
+                        <center>
+                            <img src="pulmon.jpg" alt="Pulmones de fumador con enfisema" width="250px" height="250px">
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" valign="top" style="background-color: #333333; padding: 20px; border-radius: 8px; border: 1px solid #555555;">
+                        <span style="font-weight: bold;">3. Envejecimiento Acelerado y Daño Estético:</span><br>
+                        <small style="color: #D0D0D0;">Fumar interfiere con el flujo sanguíneo a la piel y agota las reservas de oxígeno y nutrientes esenciales (como la Vitamina C y el colágeno). Esto se traduce en un <span style="font-weight: bold;">envejecimiento prematuro</span> de 10 a 20 años. Los signos incluyen <span style="font-weight: bold;">arrugas profundas</span> (especialmente alrededor de la boca, conocidas como "líneas de fumador"), piel opaca, flacidez y un tono grisáceo o amarillento. El daño dental incluye el <span style="font-weight: bold;">amarillamiento de dientes</span> y un riesgo siete veces mayor de desarrollar <span style="font-weight: bold;">enfermedad de las encías</span> (periodontitis), que lleva a la pérdida dental.</small>
+                        <br><br>
+                        <center>
+                            <img src="ciga.jpg" alt="Daño en la piel y dientes por tabaquismo" width="200px" height="250px">
+                        </center>
+                    </td>
+                     <td width="50%" valign="top" style="background-color: #333333; padding: 20px; border-radius: 8px; border: 1px solid #555555;">
+                        <span style="font-weight: bold;">4. El Riesgo Comprobado de Cáncer:</span><br>
+                        <small style="color: #D0D0D0;">Más de 69 químicos en el humo del tabaco son <span style="font-weight: bold;">carcinógenos</span> conocidos (causan cáncer). El tabaquismo está directamente relacionado con el 90% de los cánceres de pulmón. Sin embargo, el riesgo va mucho más allá: el consumo de tabaco causa cáncer en <span style="font-weight: bold;">al menos 12 partes diferentes del cuerpo</span> incluyendo la boca, faringe, laringe, esófago, vejiga, riñón, páncreas, estómago, colon/recto, hígado y cérvix, además de aumentar el riesgo de <span style="font-weight: bold;">Leucemia Mieloide Aguda</span>.</small>
+                        <br><br>
+                        <center>
+                            <img src="img.jpg" alt="Arteria obstruida por tabaquismo" width="300px" height="250px">
+                            </div>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="background-color: #4A4A4A; padding: 15px; border-radius: 8px; text-align: center; color: #FFD700; border: 1px solid #FFD700;">
+                        <span style="font-weight: bold;">LA CIFRA MORTAL:</span> Según la OMS, el tabaco mata a <span style="font-weight: bold;">más de 8 millones de personas al año</span> en el mundo. Más de 7 millones de estas muertes se deben al consumo directo, y alrededor de 1.2 millones son consecuencia de la exposición al humo ajeno (fumadores pasivos).
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <center>
+                <button onclick="showTarFact()">¡Presiona aquí para un Dato Químico Sorprendente!</button>
+            </center>
+        </div>
+        <br>
+        <center>
+            <button onclick="showPage('page-inicio')" style="background-color: #555555; border-color: #AAAAAA; color: white;">Volver al Índice</button>
+        </center>
+        <hr size="4" color="#444444" style="margin-top: 20px;">
+    </div>
+
+    <div id="page-formulario" class="page-content" style="display: none;">
+        <center>
+            <h2 class="campaign-subtitle">Tu Compromiso con la Salud</h2>
+            <p style="color: #D0D0D0;">
+                <span style="font-weight: bold;">Instrucciones:</span> Ingresa tus datos y comprométete a tomar una decisión informada.
+            </p>
+        </center>
+
+        <div class="content-section">
+            <form action="#" method="post" align="center">
+                <h4 style="color: #ADD8E6;">Datos Personales</h4>
+                
+                <span style="font-weight: bold;">Escribe tu nombre completo:</span>
+                <input type="text" name="nombre" size="50" maxlength="65" style="width: 80%; max-width: 400px;">
+                <br><br>
+                
+                <span style="font-weight: bold;">Ingresa tu correo electrónico:</span>
+                <input type="text" name="correo" size="65" maxlength="65" style="width: 80%; max-width: 400px;">
+                <br><br>
+                
+                <hr size="2" color="#555555" width="80%">
+                
+                <h4 style="color: #ADD8E6;">Cuestionario de Hábito</h4>
+                
+                <span style="font-weight: bold;">¿Cómo percibes tu hábito con el tabaco?</span>
+                <br>
+                <span style="color: #D0D0D0;"><input type="radio" name="habito" value="Nunca"> Nunca he fumado
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="habito" value="Ex-Fumador"> Soy ex-fumador
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="habito" value="Fumador Ocasional"> Fumador ocasional
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="habito" value="Fumador Regular"> Fumador regular</span>
+                
+                <br><br>
+
+                <span style="font-weight: bold;">¿Qué motiva tu deseo de dejarlo?</span> (Marca todas las que apliquen)
+                <br>
+                <span style="color: #D0D0D0;"><input type="checkbox" name="motivacion1" value="Salud"> Mejorar mi salud y condición física
+                <br>
+                <input type="checkbox" name="motivacion2" value="Familia"> Proteger a mi familia del humo de segunda mano
+                <br>
+                <input type="checkbox" name="motivacion3" value="Ahorro"> Ahorrar dinero</span>
+                
+                <br><br>
+                
+                <h1 style="color: #FFD700; font-size: 1.5em; margin-bottom: 10px;">Cómo afectan los cigarrillos al cuerpo</h1>
+                
+                <center>
+                    <div class="video-container">
+                        <video width="100%" height="auto" controls autoplay muted>
+                            <source src="nico.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                    </div>
+                </center>
+                
+                <input type="submit" value="Comprometerse (Enviar)">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="Limpiar Formulario" style="background-color: #555555; border-color: #AAAAAA; color: white;">
+
+            </form>
+        </div>
+        
+        <br>
+        <button onclick="showPage('page-inicio')" style="background-color: #555555; border-color: #AAAAAA; color: white;">Volver al Índice</button>
+        <hr size="4" color="#444444" style="margin-top: 20px;">
+    </div>
+
+</body>
+</html>
